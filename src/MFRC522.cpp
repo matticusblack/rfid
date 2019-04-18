@@ -275,6 +275,7 @@ void MFRC522::PCD_Reset() {
  * Turns the antenna on by enabling pins TX1 and TX2.
  * After a reset these pins are disabled.
  */
+PCD_WriteRegister(RFCfgReg, (0x07<<4)); // Set Rx Gain to max
 void MFRC522::PCD_AntennaOn() {
 	byte value = PCD_ReadRegister(TxControlReg);
 	if ((value & 0x03) != 0x03) {
